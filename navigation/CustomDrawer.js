@@ -73,29 +73,37 @@ const CustomDrawerContent =({navigation, selectedTab,
                 paddingHorizontal: SIZES.radius
             }}
         >
+
+        
             {/* CLOSE */}
             <View
-            style={{
-                alignItems: 'flex-start',
-                justifyContent: 'center'
-            }}
-            onPress={() => navigation.closeDrawer()}
+                style={{
+                    alignItems: 'flex-start',
+                    justifyContent: 'center'
+                }}
+               
+                
             
             >
-                <Image
-                    source={icons.cross}
-                    style={{
-                        height: 35,
-                        width: 35,
-                        tintColor: COLORS.white
-                    }}
-                />
                 <TouchableOpacity
                 style={{
                     alignItems: 'center',
                     justifyContent: 'center'
-                }}>
-
+                }}
+                onPress={() => 
+                    navigation.navigate("MainLayout")
+                }
+                >
+                
+                <Image
+                        source={icons.cross}
+                        style={{
+                        height: 35,
+                        width: 35,
+                        tintColor: COLORS.white
+                }}
+                />
+                
 
                 </TouchableOpacity>
 
@@ -152,11 +160,23 @@ const CustomDrawerContent =({navigation, selectedTab,
             <CustomDrawerItem
                 label={constants.screens.notification}
                 icon={icons.notification}
+                isFocused={selectedTab == constants.
+                screens.notification}
+                onPress={() => {
+                    setSelectedTab(constants.screens.notification)
+                    navigation.navigate("MainLayout")
+                }}
             />
 
             <CustomDrawerItem
                 label={constants.screens.favourite}
                 icon={icons.favourite}
+                isFocused={selectedTab == constants.
+                screens.favourite}
+                onPress={() => {
+                    setSelectedTab(constants.screens.favourite)
+                    navigation.navigate("MainLayout")
+                }}
             />
 
             {/*Line Divider*/}

@@ -1,5 +1,6 @@
 import MainLayout from "./MainLayout"
 
+import FilterModal from "./Home/FilterModal"
 // Home
 import Home from "./Home/Home"
 
@@ -17,6 +18,7 @@ import Notification from "./Notification/Notification"
 
 export {
     MainLayout,
+    FilterModal,
     Home,
     Search,
     CartTab,
