@@ -4,8 +4,10 @@ import {
     Text,
     Animated,
     TouchableWithoutFeedback,
-    Modal
+    Modal,
+    ScrollView
 } from 'react-native';
+//import { ScrollView } from 'react-native-gesture-handler';
 
 import { 
     IconButton,
@@ -81,7 +83,7 @@ const modalY = modalAnimatedValue.interpolate({
                         (values)}
                     />
                 </View>
-            </Section>
+            </Section> 
         )
     }
 
@@ -274,6 +276,7 @@ const modalY = modalAnimatedValue.interpolate({
             }}
             >
                 {/* Header */}
+                
                 <View
                     style={{
                         flexDirection: 'row',
@@ -296,13 +299,17 @@ const modalY = modalAnimatedValue.interpolate({
                         onPress={()=> setShowFilterModal(false)}
                     />
                 </View>
-
-                <Section
+                
+                <ScrollView
                     showVerticalScrollIndicator={false}
                     contentContainerStyle={{
-                        padding: 250
+                        paddingBottom: 400
                     }}
                 >
+               
+                    
+                    
+            
                     {/* Distance */}
                     {renderDistance()}
 
@@ -316,13 +323,15 @@ const modalY = modalAnimatedValue.interpolate({
                     {renderRatings()}
                     
                     {/* Tags */}
-                    {renderTags()}
+                    {renderTags()} 
 
                     {/* Apply Button */}
-                    <View
+                    </ScrollView>
+                    
+                     <View
                     style={{
                         position: 'absolute',
-                        bottom: 150,
+                        bottom: 50,
                         left: 0,
                         right: 0,
                         height: 110,
@@ -330,7 +339,7 @@ const modalY = modalAnimatedValue.interpolate({
                         paddingVertical: SIZES.radius,
                         backgroundColor: COLORS.white
                     }}
-                    >
+                    > 
                         <TextButton 
                             label="Apply Filter"
                             buttonContainerStyle={{
@@ -340,8 +349,8 @@ const modalY = modalAnimatedValue.interpolate({
                             }}
                             onPress={() => console.log("Apply Filter")}
                         />
-                    </View>
-                </Section>
+                     </View>
+                    
             </Animated.View>
         </View>
     </Modal>    
